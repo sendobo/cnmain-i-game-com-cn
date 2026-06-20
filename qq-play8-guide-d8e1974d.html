@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA直播 · 快速识别指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f2f4f6;
+            color: #2c3e4f;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            padding: 12px 24px;
+            border-radius: 16px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            border: 1px solid #e6e9ed;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .navbar .brand {
+            font-weight: 600;
+            font-size: 1.15rem;
+            letter-spacing: 0.3px;
+            color: #1a2b3a;
+        }
+
+        .navbar .brand span {
+            color: #3a6b8c;
+            margin-left: 6px;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #3e5a6f;
+            font-size: 0.95rem;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .navbar .nav-links a:hover {
+            border-bottom-color: #6f95b5;
+        }
+
+        .navbar .nav-links .highlight-link {
+            color: #1e4b6e;
+            font-weight: 500;
+        }
+
+        /* hero 区域 */
+        .hero {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px 32px;
+            margin-bottom: 30px;
+            border: 1px solid #e2e7ed;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: #1d3140;
+            letter-spacing: -0.3px;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            max-width: 700px;
+            color: #405b6f;
+            margin-bottom: 18px;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #eaf0f6;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #2b4f67;
+            border: 1px solid #d3dde7;
+        }
+
+        /* 介绍卡片 */
+        .intro-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 28px 30px;
+            margin-bottom: 28px;
+            border: 1px solid #e3e9ef;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+        }
+
+        .intro-card h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 14px;
+            color: #1c3345;
+        }
+
+        .intro-card p {
+            margin-bottom: 14px;
+            color: #38506a;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-card a {
+            color: #3a6b8c;
+            text-decoration: none;
+            border-bottom: 1px dotted #9bb8d2;
+        }
+
+        .intro-card a:hover {
+            color: #1a4b6a;
+            border-bottom-style: solid;
+        }
+
+        /* 三个场景模块 */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 24px 22px 28px;
+            border: 1px solid #e2e7ed;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+            transition: transform 0.15s;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+        }
+
+        .scene-card .emoji-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .scene-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1d3446;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #3f5970;
+        }
+
+        /* 常见说明 */
+        .faq-section {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 28px 30px 20px;
+            margin-bottom: 30px;
+            border: 1px solid #e3e9ef;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+        }
+
+        .faq-section h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 18px;
+            color: #1c3345;
+        }
+
+        .faq-item {
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #edf1f6;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-item .question {
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: #28485f;
+        }
+
+        .faq-item .answer {
+            font-size: 0.95rem;
+            color: #3f5970;
+        }
+
+        .faq-item .answer a {
+            color: #3a6b8c;
+            text-decoration: none;
+            border-bottom: 1px dotted #aac1d6;
+        }
+
+        .faq-item .answer a:hover {
+            border-bottom-style: solid;
+            color: #1a4b6a;
+        }
+
+        /* footer */
+        .footer {
+            text-align: center;
+            padding: 18px 0 6px;
+            font-size: 0.85rem;
+            color: #6b7f8f;
+            border-top: 1px solid #dfe4ea;
+            margin-top: 10px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .scenes-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .navbar .nav-links {
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 12px;
+            }
+
+            .hero {
+                padding: 28px 20px;
+            }
+
+            .intro-card,
+            .faq-section {
+                padding: 20px 18px;
+            }
+
+            .scene-card {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航 -->
+        <nav class="navbar">
+            <div class="brand">⚡ 直播识别<span>· 简洁指南</span></div>
+            <div class="nav-links">
+                <a href="#">首页</a>
+                <a href="#">功能</a>
+                <a href="#">说明</a>
+                <a href="#" class="highlight-link">NBA直播</a>
+            </div>
+        </nav>
+
+        <!-- hero 区域 -->
+        <div class="hero">
+            <h1>快速识别 · 你的观赛起点</h1>
+            <p>一个页面帮你厘清平台定位：无需反复试探，一眼了解这里提供怎样的内容、适合哪些习惯。无论你是想跟住赛季进程，还是偶尔抽空看一场焦点战，都能找到属于自己的节奏。</p>
+            <span class="tagline">🎯 从信息到直播，路径清晰</span>
+        </div>
+
+        <!-- 核心介绍 -->
+        <div class="intro-card">
+            <h2>这个网站是什么？</h2>
+            <p>
+                <a href="https://qq-play8.com">NBA直播</a> 是一个围绕篮球赛事内容聚合的导航式平台。它并非传统意义上的视频门户，而是将比赛资讯、实时链接、赛程提示集中呈现，方便你快速判断当前有哪些可关注的场次。无论你用的是电脑还是手机，打开页面就能获得当日的赛事概览。
+            </p>
+            <p>
+                很多人第一次访问时，总会担心找不到重点。这里的逻辑很直白：页面按「正在直播」「即将开始」「近期回顾」三类场景组织信息，减少浏览负担。你不需要注册或登录，即可看到当前可用的直播入口。
+            </p>
+        </div>
+
+        <!-- 三个场景模块 -->
+        <div class="scenes-grid">
+            <div class="scene-card">
+                <span class="emoji-icon">🏀</span>
+                <h3>正在直播 · 实时切入</h3>
+                <p>当比赛正在进行时，页面会高亮显示当前场次，并附带直接跳转链接。你无需在多个标签页之间来回切换，所有有效入口一目了然。</p>
+            </div>
+            <div class="scene-card">
+                <span class="emoji-icon">📅</span>
+                <h3>即将开始 · 提前准备</h3>
+                <p>赛前半小时左右，相关场次会出现在「即将开始」区域，附带倒计时或预计开赛时间。方便你安排日程，不错过开球。</p>
+            </div>
+            <div class="scene-card">
+                <span class="emoji-icon">📋</span>
+                <h3>近期回顾 · 赛后信息</h3>
+                <p>错过直播？回顾区域会保留最近几场的比赛摘要、集锦链接或录像回放入口。你可以快速补上关键回合，保持对赛季的追踪。</p>
+            </div>
+        </div>
+
+        <!-- 常见说明（FAQ摘要） -->
+        <div class="faq-section">
+            <h2>常见说明 · 几个你可能关心的事</h2>
+            <div class="faq-item">
+                <div class="question">Q: 页面上的链接可以直接播放吗？</div>
+                <div class="answer">A: 链接会跳转到对应的直播页面或播放源。部分场次可能需要配合浏览器环境，通常无需额外插件。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">Q: 是否收费？需要注册账号？</div>
+                <div class="answer">A: 当前页面提供的所有导航内容均免费开放，无需注册或登录即可浏览。部分第三方直播源可能有独立规则，但平台本身不设门槛。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">Q: 如何确认某场比赛是否会有直播？</div>
+                <div class="answer">A: 页面会根据官方赛程和可用信号源动态更新。如果某场次显示「暂无信号」，通常意味着直播尚未开始或源暂未稳定。建议赛前15分钟再次刷新页面。你也可以直接访问 <a href="https://qq-play8.com">NBA直播</a> 查看最新状态。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">Q: 移动端体验如何？</div>
+                <div class="answer">A: 页面采用响应式设计，在手机或平板浏览器上会自动适配卡片布局，触摸操作友好。无需下载额外应用。</div>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="footer">
+            <p>内容索引仅供参考，所有直播跳转以实际页面为准。保持简洁，专注观赛。</p>
+        </div>
+    </div>
+</body>
+</html>
